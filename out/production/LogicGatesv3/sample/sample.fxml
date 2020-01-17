@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="MainHbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ScrollPane prefHeight="400.0" prefWidth="153.0" />
+      <VBox prefHeight="400.0" prefWidth="280.0" HBox.hgrow="ALWAYS">
+         <children>
+            <ScrollPane prefHeight="72.0" prefWidth="447.0">
+               <content>
+                  <HBox fx:id="input_box" nodeOrientation="LEFT_TO_RIGHT" prefHeight="66.0" prefWidth="545.0" />
+               </content></ScrollPane>
+            <ScrollPane prefHeight="79.0" prefWidth="447.0">
+               <content>
+                  <HBox fx:id="output_box" prefHeight="67.0" prefWidth="538.0" />
+               </content></ScrollPane>
+            <Pane prefHeight="231.0" prefWidth="447.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="action_button" layoutX="21.0" layoutY="18.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="163.0" text="Run">
+                     <font>
+                        <Font size="21.0" />
+                     </font></Button>
+                  <Label layoutX="457.0" layoutY="8.0" prefHeight="30.0" prefWidth="80.0" text="Mode:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Button id="mode_button" fx:id="mode_button" layoutX="316.0" layoutY="38.0" mnemonicParsing="false" onAction="#changeMode" prefHeight="41.0" prefWidth="237.0" text="Testing">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <ScrollPane id="LogPanel" layoutX="21.0" layoutY="175.0" prefHeight="150.0" prefWidth="527.0">
+                     <content>
+                        <VBox id="loggerbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="517.0" />
+                     </content></ScrollPane>
+                  <Button layoutX="21.0" layoutY="129.0" mnemonicParsing="false" onAction="#pressDebug" prefHeight="41.0" prefWidth="163.0" text="Debug">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</HBox>
