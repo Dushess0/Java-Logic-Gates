@@ -4,6 +4,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.layout.HBox;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 public class VariableRow
 {
     private  HBox box;
@@ -15,7 +16,7 @@ public class VariableRow
   }
   public void clear()
   {
-      box.getChildren().removeAll();
+      box.getChildren().clear();
   }
 
 
@@ -31,6 +32,23 @@ public class VariableRow
         }
 
 
+    }
+    public void setDisable(boolean disable)
+    {
+        for (Node child : box.getChildren()) {
+               child.setDisable(disable);
+
+        }
+    }
+    public boolean[] get_States()
+    {   boolean[] result= new boolean[get_size()];
+        int i =0;
+        for (Node child : box.getChildren()) {
+            CheckBox check = (CheckBox) child;
+            result[i]=check.isSelected();
+            i++;
+        }
+        return result;
     }
     public int get_size()
     {

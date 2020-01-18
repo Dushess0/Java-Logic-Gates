@@ -10,7 +10,10 @@
 
 <HBox fx:id="MainHbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ScrollPane prefHeight="400.0" prefWidth="153.0" />
+      <ScrollPane prefHeight="400.0" prefWidth="153.0">
+         <content>
+            <VBox fx:id="operations_list" prefHeight="200.0" prefWidth="100.0" />
+         </content></ScrollPane>
       <VBox prefHeight="400.0" prefWidth="280.0" HBox.hgrow="ALWAYS">
          <children>
             <ScrollPane prefHeight="72.0" prefWidth="447.0">

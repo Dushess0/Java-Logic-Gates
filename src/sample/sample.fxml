@@ -10,7 +10,10 @@
 
 <HBox fx:id="MainHbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ScrollPane prefHeight="400.0" prefWidth="153.0" />
+      <ScrollPane prefHeight="400.0" prefWidth="153.0">
+         <content>
+            <VBox fx:id="operations_list" prefHeight="200.0" prefWidth="100.0" />
+         </content></ScrollPane>
       <VBox prefHeight="400.0" prefWidth="280.0" HBox.hgrow="ALWAYS">
          <children>
             <ScrollPane prefHeight="72.0" prefWidth="447.0">
@@ -23,7 +26,7 @@
                </content></ScrollPane>
             <Pane prefHeight="231.0" prefWidth="447.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="action_button" layoutX="21.0" layoutY="18.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="163.0" text="Run">
+                  <Button fx:id="action_button" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="163.0" text="Run">
                      <font>
                         <Font size="21.0" />
                      </font></Button>
@@ -41,11 +44,6 @@
                      <content>
                         <VBox id="loggerbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="517.0" />
                      </content></ScrollPane>
-                  <Button layoutX="21.0" layoutY="129.0" mnemonicParsing="false" onAction="#pressDebug" prefHeight="41.0" prefWidth="163.0" text="Debug">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
          </children>
