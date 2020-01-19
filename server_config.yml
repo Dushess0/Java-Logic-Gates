@@ -1,0 +1,5 @@
+server:www.yourserver.com
+port:21
+user:user
+password:12345
+path:where_save/your/files/

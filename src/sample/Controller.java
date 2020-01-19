@@ -1,6 +1,5 @@
 package sample;
 import javafx.event.ActionEvent;
-
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.*;
@@ -41,6 +40,7 @@ public class Controller
         ServerManager.load();
         ServerManager.uploadFiles();
         load_operations_list();
+        logger.Log("Done synchronization with DB");
     }
     public void pressDebug(ActionEvent e)
     {

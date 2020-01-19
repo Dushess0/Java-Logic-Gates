@@ -1,30 +1,64 @@
 package sample;
-import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPClient;
-
 import java.io.*;
 import java.net.SocketException;
-
 public class ServerManager
-
 {
 
-    private static String server = "yourserver.com";
-    private static   int port = 21;
-    private static String  user = "user";
-    private static String pass = "password";
-    private static String path="path/to/your/files/on/server/";
 
+    public  static ConnectionProperties read_config()
+    {
+       ConnectionProperties result=new ConnectionProperties();
+
+       File f = new File("server_config.yml");
+        try(BufferedReader br = new BufferedReader(new FileReader(f)))
+        {
+            for(String line; (line = br.readLine()) != null; )
+            {
+               String[] a=  line.split(":");
+
+               if (a[0].equals("server"))
+               {
+                   result.setAdress(a[1]);
+               }
+               else if (a[0].equals("port"))
+               {
+                   result.setPort(Integer.parseInt( a[1]));
+               }
+               else if (a[0].equals("user"))
+               {
+                   result.setUser(a[1]);
+               }
+               else if (a[0].equals("path"))
+               {
+                   result.setPath(a[1]);
+               }
+               else if (a[0].equals("password"))
+               {
+                   result.setPassword(a[1]);
+               }
+            }
+
+        }
+        catch (IOException e)
+        {
+          e.printStackTrace();
+        }
+
+        return result;
+
+
+    }
     public static void  uploadFiles()
     {
 
-
+         ConnectionProperties a=  read_config();
         FTPClient ftpClient = new FTPClient();
         try
         {
-            ftpClient.connect(server, port);
-            ftpClient.login(user, pass);
+            ftpClient.connect(a.getAdress(), a.getPort());
+            ftpClient.login(a.getUser(), a.getPassword());
             ftpClient.enterLocalPassiveMode();
             File folder = new File(".") ;
             File[] listOfFiles = folder.listFiles();
@@ -35,7 +69,7 @@ public class ServerManager
                 if (f.getName().endsWith(".op"))
                 {
                     InputStream input = new FileInputStream(f);
-                    ftpClient.storeFile(path+f.getName() , input);
+                    ftpClient.storeFile(a.getPath()+f.getName() , input);
 
                  }
             }
@@ -54,13 +88,14 @@ public class ServerManager
     }
     public  static  void load()
     {
+        ConnectionProperties a=  read_config();
         FTPClient ftpClient = new FTPClient();
         try
         {
-            ftpClient.connect(server, port);
-            ftpClient.login(user, pass);
+            ftpClient.connect(a.getAdress(), a.getPort());
+            ftpClient.login(a.getUser(), a.getPassword());
             ftpClient.enterLocalPassiveMode();
-            ftpClient.changeWorkingDirectory(path);
+            ftpClient.changeWorkingDirectory(a.getPath());
             FTPFile[] ftpFiles = ftpClient.listFiles();
 
             if (ftpFiles != null && ftpFiles.length > 0) {
@@ -70,8 +105,6 @@ public class ServerManager
                     {
                         continue;
                     }
-                    System.out.println("Downloaded  " + file.getName());
-
                     OutputStream output;
                     output = new FileOutputStream(file.getName());
 

@@ -30,7 +30,7 @@ public class Loader
     {
         try
         {
-            System.out.println(file.getName());
+
             BufferedReader brTest = null;
             brTest = new BufferedReader(new FileReader(file));
             String in = brTest .readLine();
