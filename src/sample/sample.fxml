@@ -44,6 +44,7 @@
                      <content>
                         <VBox id="loggerbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="517.0" />
                      </content></ScrollPane>
+                  <Button layoutX="371.0" layoutY="148.0" mnemonicParsing="false" onAction="#synchonize_with_db" text="Synchornize Operations with DB" />
                </children>
             </Pane>
          </children>

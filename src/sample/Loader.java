@@ -1,14 +1,6 @@
 package sample;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Stream;
-import java.util.stream.Collectors;
-
 public class Loader
 {
     public static LogicOperation[]  Load()
@@ -31,19 +23,11 @@ public class Loader
                 result[j]=LoadOne(listOfFiles[i]);
                 j++;
             }
-
         }
-
-
-
-
         return result;
     }
     public static LogicOperation LoadOne(File file)
     {
-
-
-
         try
         {
             System.out.println(file.getName());
@@ -67,7 +51,7 @@ public class Loader
                 if (i>Math.pow(2,inputs)-1)
                     break;
             }
-
+            brTest.close();
             return new LogicOperation(file.getName(),inputs,outputs,answers);
 
         } catch (FileNotFoundException e)
@@ -77,7 +61,6 @@ public class Loader
         {
            System.out.println("IOException");
         }
-
        return null;
     }
 

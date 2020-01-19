@@ -31,8 +31,17 @@ public class Controller
         load_operations_list();
         Button action_btn=(Button) scene.lookup("#action_button");
         action_btn.setOnAction((ActionEvent c)->RunTest());
-    }
 
+
+
+    }
+    public void synchonize_with_db(ActionEvent e)
+    {
+
+        ServerManager.load();
+        ServerManager.uploadFiles();
+        load_operations_list();
+    }
     public void pressDebug(ActionEvent e)
     {
        logger.Log("Debugging");
@@ -97,7 +106,6 @@ public class Controller
                 current_operation=operation;
                 inputs.load(current_operation.inputs);
                 outputs.load(current_operation.outputs);
-
             }
             );
             operations_list.getChildren().add(0,btn);
@@ -108,10 +116,7 @@ public class Controller
     {
         if (current_operation!=null)
         {
-
             outputs.clear();
-
-
             boolean[] answers=  current_operation.Run(inputs.get_States());
             outputs.load(current_operation.outputs,answers);
             logger.Log("Solution found");
@@ -121,16 +126,12 @@ public class Controller
             logger.Log("current operation is null");
         }
 
-
-
-
     }
     void change_mode(String newMode)
     {
         mode=newMode;
         Button mode_btn=  (Button) scene.lookup("#mode_button");
         mode_btn.setText(mode);
-
     }
     private void  saving_new_operation()
     {
@@ -138,35 +139,30 @@ public class Controller
         {
             Saver.CreateNewOperation(input_len,output_len,obtained_outputs);
             load_operations_list();
+
         }
         catch (IOException e)
         {
             logger.Log("Something went wrong when saving to file");
         }
-
-
     }
     public void changeMode(ActionEvent e)
     {
-
       Button action_btn=(Button) scene.lookup("#action_button");
 
       if (mode=="Variants")
         {
             logger.Log("You cant change modes while defining new operation");
-
         }
       else if (mode=="New operation")
       {
           change_mode("Testing");
           inputs.clear();
           outputs.clear();
-
       }
        else if (mode=="Testing")
       {
            change_mode("New operation");
-
           inputs.clear();
           outputs.clear();
           inputs.add_New_Button();
@@ -174,12 +170,6 @@ public class Controller
           action_btn.setText("Start");
           logger.Log("Specify number of inputs and outputs, after that press [Start] button");
           action_btn.setOnAction((ActionEvent a)-> start());
-
       }
-
-
-
     }
-
-
 }

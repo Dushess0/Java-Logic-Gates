@@ -3,7 +3,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.HBox;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 public class VariableRow
 {
@@ -18,11 +17,8 @@ public class VariableRow
   {
       box.getChildren().clear();
   }
-
-
     public void load(int size,boolean[] checked)
     {
-
         for (int i = 0; i < size; i++)
         {
             CheckBox tmp=new CheckBox();
@@ -30,7 +26,6 @@ public class VariableRow
             tmp.setSelected(checked[i]);
             box.getChildren().add(tmp);
         }
-
 
     }
     public void setDisable(boolean disable)
@@ -77,7 +72,6 @@ public class VariableRow
             tmp.setText(String.valueOf(alphabet[i]));
             tmp.setSelected(false);
             box.getChildren().add(tmp);
-
         }
     }
 

@@ -25,11 +25,6 @@ public class Logger
         {
             System.out.println("Logger is disabled, cause of NullPointerException");
         }
-
-
-
-
-
     }
 
 }

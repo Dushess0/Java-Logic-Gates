@@ -24,7 +24,6 @@ public class LogicOperation
         }
         return bools;
     }
-
     public  LogicOperation(String name,int inputs,int outputs, boolean[][] answers)
     {   this.name=name;
         this.inputs=inputs;
@@ -34,8 +33,6 @@ public class LogicOperation
     public boolean[] Run(boolean[] params)
     {
         boolean[][] tmp=generateAllBinary(inputs);
-
-
         for (int i = 0; i < tmp.length; i++)
         {
            if (Arrays.equals(tmp[i],params))
@@ -43,7 +40,6 @@ public class LogicOperation
                return answers[i];
            }
         }
-
         return tmp[0];
     }
 }

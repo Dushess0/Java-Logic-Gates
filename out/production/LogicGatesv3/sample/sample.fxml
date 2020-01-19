@@ -26,7 +26,7 @@
                </content></ScrollPane>
             <Pane prefHeight="231.0" prefWidth="447.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="action_button" layoutX="21.0" layoutY="18.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="163.0" text="Run">
+                  <Button fx:id="action_button" layoutX="21.0" layoutY="38.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="163.0" text="Run">
                      <font>
                         <Font size="21.0" />
                      </font></Button>
@@ -44,11 +44,7 @@
                      <content>
                         <VBox id="loggerbox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="142.0" prefWidth="517.0" />
                      </content></ScrollPane>
-                  <Button layoutX="21.0" layoutY="129.0" mnemonicParsing="false" onAction="#pressDebug" prefHeight="41.0" prefWidth="163.0" text="Debug">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
+                  <Button layoutX="371.0" layoutY="148.0" mnemonicParsing="false" onAction="#synchonize_with_db" text="Synchornize Operations with DB" />
                </children>
             </Pane>
          </children>
