@@ -31,7 +31,7 @@ public class Loader
         try
         {
 
-            BufferedReader brTest = null;
+            BufferedReader brTest;
             brTest = new BufferedReader(new FileReader(file));
             String in = brTest .readLine();
             String out=brTest.readLine();
